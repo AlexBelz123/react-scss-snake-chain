@@ -11,7 +11,7 @@ const Counter: FC<CounterProps> = ({ count, setCount }) => {
   };
   const decrease = () => {
     if (count > 1) {
-      setCount(count + 1);
+      setCount(count - 1);
     }
   };
 
@@ -27,8 +27,10 @@ const Counter: FC<CounterProps> = ({ count, setCount }) => {
       <div>
         Items to show: <span className="count">{count}</span>
       </div>
-      <button onClick={increase}>+</button>
-      <button onClick={decrease}>-</button>
+      <div style={{ display: 'flex' }}>
+        <button onClick={increase}>+</button>
+        <button onClick={decrease}>-</button>
+      </div>
     </div>
   );
 };

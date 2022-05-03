@@ -11,7 +11,7 @@ interface LineGeneratorProps {
   children: React.ReactNode;
   destLeft: TDestinationLeft | null;
   destRight: TDestinationRight | null;
-  className: any;
+  className?: any;
 }
 
 const LineGenerator: FC<LineGeneratorProps> = ({

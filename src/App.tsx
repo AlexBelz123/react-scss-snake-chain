@@ -37,7 +37,7 @@ const createLinedArray = (arr: number[], count: number) => {
 
   const twoDArr = Array.from({ length: columns }).map(() => customSlice(arr));
   const lastNotFull = twoDArr[columns - 1].length % count > 0;
-  console.log(lastNotFull);
+  const lastIsOdd = twoDArr.length % 2 > 0;
 
   const generated2DArr: IDest[][] = [];
 
@@ -80,12 +80,12 @@ const createLinedArray = (arr: number[], count: number) => {
     generated2DArr.push(tempArr);
   }
 
-  return { generated2DArr, lastNotFull };
+  return { generated2DArr, lastReversed: lastNotFull && !lastIsOdd };
 };
 
 function App() {
   const [count, setCount] = useState(ITEMS_TO_SHOW);
-  const { generated2DArr, lastNotFull } = createLinedArray(arrData, count);
+  const { generated2DArr, lastReversed } = createLinedArray(arrData, count);
 
   return (
     <div className="App">
@@ -94,25 +94,12 @@ function App() {
         <div style={{ display: 'inline-block' }}>
           {generated2DArr.map((row, idx) => {
             return (
-              <div
-                key={idx}
-                className={clsx(
-                  'blocks',
-                  idx + 1 === generated2DArr.length && lastNotFull && 'reverse'
-                )}
-              >
+              <div key={idx} className={clsx('blocks')}>
                 {row.map((column, i) => (
                   <LineGenerator
                     key={column.id}
                     destLeft={column.l}
                     destRight={column.r}
-                    className={clsx(
-                      idx + 1 === generated2DArr.length &&
-                        i + 1 === row.length &&
-                        lastNotFull &&
-                        'first',
-                      idx === 0 && i === 0 && 'first'
-                    )}
                   >
                     <SomeBlock />
                   </LineGenerator>
