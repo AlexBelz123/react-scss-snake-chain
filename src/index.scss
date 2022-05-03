@@ -1,0 +1,51 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+.App {
+  width: 100%;
+  padding: 3em;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blocks {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1.7rem;
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+
+.first {
+  &::before {
+    opacity: 0;
+  }
+}
+
+.last {
+  &::after {
+    opacity: 0;
+  }
+}
+
+// counter
+
+.count {
+  color: purple;
+  font-size: 20px;
+}
