@@ -35,8 +35,7 @@ button {
 .blocks {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 1.7rem;
-
+  margin-top: -0.27rem;
   &:last-child:nth-child(2n) {
     width: fit-content;
     margin-left: auto;

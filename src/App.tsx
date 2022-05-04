@@ -96,13 +96,9 @@ function App() {
             return (
               <div key={idx} className={clsx('blocks')}>
                 {row.map((column, i) => (
-                  <LineGenerator
-                    key={column.id}
-                    destLeft={column.l}
-                    destRight={column.r}
-                  >
-                    <SomeBlock />
-                  </LineGenerator>
+                  <SomeBlock key={column.id}>
+                    <LineGenerator destLeft={column.l} destRight={column.r} />
+                  </SomeBlock>
                 ))}
               </div>
             );

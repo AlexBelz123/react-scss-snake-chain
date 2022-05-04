@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 export const randomColor = () =>
   Math.floor(Math.random() * 16777215).toString(16);
 
-const SomeBlock = () => {
+interface SomeBlockProps {
+  children?: React.ReactNode;
+}
+const SomeBlock: FC<SomeBlockProps> = ({ children }) => {
   const background = `#${randomColor()}`;
 
   return (
     <div
-      style={{ width: '2rem', height: '2rem', background: background }}
-    ></div>
+      style={{
+        width: '4rem',
+        height: '4rem',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+      }}
+    >
+      <div
+        style={{ background: background, width: '2rem', height: '2rem' }}
+      ></div>
+      {children}
+    </div>
   );
 };
 

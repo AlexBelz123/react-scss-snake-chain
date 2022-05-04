@@ -8,7 +8,7 @@ export type TDestinationRight = 'right' | 'top-right' | 'bottom-right';
 export type TDestination = TDestinationLeft | TDestinationRight;
 
 interface LineGeneratorProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   destLeft: TDestinationLeft | null;
   destRight: TDestinationRight | null;
   className?: any;
